@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: naito-mercari_production
-  username: naito-mercari
-  password: <%= ENV['NAITO-MERCARI_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
