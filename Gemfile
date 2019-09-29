@@ -83,3 +83,7 @@ group :development, :test do
 end
 
 gem "recaptcha", require: "recaptcha/rails"
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
