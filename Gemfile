@@ -81,5 +81,3 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
-
-gem "recaptcha", require: "recaptcha/rails"

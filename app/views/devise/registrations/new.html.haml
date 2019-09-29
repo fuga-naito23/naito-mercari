@@ -26,43 +26,6 @@
             %span.formRequired 必須
             %br/
             = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
-          .form-group
-            %br/
-            %br/
-            %h3.text-left.l-chapter-sub-head 本人確認
-            %p.text
-              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-            %br/
-            %br/
-          .deviseForm__field.deviseForm__field--top
-            = f.label :お名前（全角）
-            %span.formRequired 必須
-            .name_form
-              - @user.build_profile
-              = f.fields_for :profile do |profile_form|
-                = profile_form.text_field :first_name, autofocus: true, autocomplete: "off", placeholder: "例）山田", class: "inputFieldFirst", required: true
-                = profile_form.text_field :family_name, autofocus: true, autocomplete: "off", placeholder: "例）太郎", class: "inputFieldFamily", required: true
-          %br/
-          .deviseForm__field.deviseForm__field--top
-            = f.label :お名前（カナ）
-            %span.formRequired 必須
-            .name_form
-              - @user.build_profile
-              = f.fields_for :profile do |profile_form|
-                = profile_form.text_field :first_name_kana, autofocus: true, autocomplete: "off", placeholder: "例）ヤマダ", class: "inputFieldFirst", required: true
-                = profile_form.text_field :family_name_kana, autofocus: true, autocomplete: "off", placeholder: "例）タロウ", class: "inputFieldFamily", required: true
-          %br/
-          .deviseForm__field.deviseForm__field--top
-            = f.label :生年月日
-            %span.formRequired 必須
-          .birthday_form
-            - @user.build_profile
-            = f.fields_for :profile do |profile_form|
-              != sprintf(profile_form.date_select(:birthday,with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
-          .form-into-text
-            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .recaptcha
-            = recaptcha_tags
           .deviseForm__actions
             = f.submit "次へ進む", class: "deviseBtn"
   =render "devise/shared/footer"
