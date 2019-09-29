@@ -30,9 +30,6 @@
               = image_tag("member_photo_noimage_thumb.png", size: "32x32",)
               %span マイページ
           %li.listsRight__item
-            = link_to destroy_user_session_path , method: :delete do
-              %span ログアウト
-          %li.listsRight__item
             = link_to "#" do
               = fa_icon "bell", text: "お知らせ"
           %li.listsRight__item
