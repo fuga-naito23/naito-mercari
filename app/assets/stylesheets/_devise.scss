@@ -62,9 +62,16 @@
         &--none {
           padding: 0 0 40px 0;
         }
+        .text-left{
+          font-weight: bold;
+        }
         .new_user {
           max-width: 320px;
           margin: 0 auto;
+          .form-into-text{
+            color: #888;
+            font-size: small;
+          }
           .deviseForm__field {
             @include form();
             margin: 40px 0 0;
@@ -87,7 +94,16 @@
                 width: 100%;
               }
             }
-          }
+            .name_form{
+              display: flex;
+              .inputFieldFirst {
+                @include input2();
+              }
+              .inputFieldFamily {
+                @include input2();
+              }
+            }
+        }
           .remember__field {
             margin: 10px 0 0 0;
           }
@@ -145,4 +161,3 @@
     }
   }
 }
-//end
