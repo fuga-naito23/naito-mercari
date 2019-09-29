@@ -16,16 +16,19 @@
             %span.formRequired 必須
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "inputField", required: true
-          .deviseForm__field
-            = f.label :パスワード
-            %span.formRequired 必須
-            %br/
-            = f.password_field :password, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
-          .deviseForm__field
-            = f.label :パスワード（確認）
-            %span.formRequired 必須
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .deviseForm__field
+              = f.label :パスワード
+              %span.formRequired 必須
+              %br/
+              = f.password_field :password, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
+            .deviseForm__field
+              = f.label :パスワード（確認）
+              %span.formRequired 必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
           .form-group
             %br/
             %br/

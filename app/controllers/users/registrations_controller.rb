@@ -14,6 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # binding.pry
     @user = User.new(profile_params)
     @user.save
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     super
   end
 
