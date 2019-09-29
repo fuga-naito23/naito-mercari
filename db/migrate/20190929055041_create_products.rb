@@ -9,9 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :delivery_agency , null: false
       t.integer :delivery_days , null: false
       t.integer :status , null: false
-      t.references :category , null: false , foreign_key: true
       t.references :user , null: false , foreign_key: true
-      t.references :brand , null: false , foreign_key: true
       t.timestamps
     end
   end

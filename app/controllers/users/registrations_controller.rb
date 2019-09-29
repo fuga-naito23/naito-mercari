@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # binding.pry
     @user = User.new(profile_params)
     @user.save
     if params[:sns_auth] == 'true'
