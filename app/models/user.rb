@@ -5,9 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+  has_many :products
+  has_many :dealings
+  has_one :sns_credentials
   has_one :profile
+  has_one :credit
   accepts_nested_attributes_for :profile
-  has_many :sns_credentials
   
   
   def self.from_omniauth(auth)

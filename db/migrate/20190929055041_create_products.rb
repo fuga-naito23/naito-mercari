@@ -5,6 +5,9 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :price , null: false
       t.text  :detail , null: false
       t.integer :condition , null: false
+      t.integer :size , null: false
+      t.integer :shipping_fee , null: false
+      t.integer :expected_date , null: false
       t.integer :delivery_tax_payer, null: false
       t.integer :delivery_agency , null: false
       t.integer :delivery_days , null: false
