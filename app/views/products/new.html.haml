@@ -37,7 +37,7 @@
                 = f.label :カテゴリー
                 %span.formRequired 必須
                 %br/
-                -# = f.collection_select(:size, [], :id , :name, {prompt: "---"}, {class: "inputField inputField__select", id: "category", required: true})
+                = f.collection_select(:size, [], :id , :name, {prompt: "---"}, {class: "inputField inputField__select", id: "category", required: true})
               .productForm__field
                 = f.label :ブランド
                 %br/
