@@ -89,3 +89,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'jp_prefecture'
+gem 'enum_help'

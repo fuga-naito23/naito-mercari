@@ -12,10 +12,12 @@
               %span.formRequired 必須
               %br/
               %p 最大4枚までアップロードできます
-              %ul.formUploader
-                .uploadInfo
-                  %p ドラッグアンドドロップ
-                  %span またはクリックしてアップロード
+              .images
+                = f.label :images, class: 'input-box__image' do
+                  .uploadInfo
+                    %p ドラッグアンドドロップ
+                    %span またはクリックしてアップロード
+                  = f.file_field :images , data: {id: "0"}
           .formSection
             .productForm__field
               = f.label :商品名
@@ -45,7 +47,7 @@
                 = f.label :商品の状態
                 %span.formRequired 必須
                 %br/
-                = f.select(:status, [["新品/未使用", 0], ["未使用に近い", 1], ["目立った傷や汚れなし", 2], ["やや傷や汚れあり", 3], ["傷や汚れあり", 4], ["状態が悪い", 5]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
+                = f.select :status,Product.statuses_i18n.invert, {}, placeholder: 0 
           .formSection
             .contentLeft
               %h3
@@ -63,7 +65,7 @@
                 = f.label :発送元の地域
                 %span.formRequired 必須
                 %br/
-                = f.collection_select(:price, [], :id, :name, {prompt: "---"}, {class: "inputField inputField__select", required: true})
+                = f.collection_select :prefecture, JpPrefecture::Prefecture.all, :code, :name
               .productForm__field
                 = f.label :発送までの日数
                 %span.formRequired 必須
