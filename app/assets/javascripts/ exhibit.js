@@ -19,7 +19,6 @@ $(function () {
         }
         var src = files[i];
         src = window.URL.createObjectURL(src);
-        console.log(src);
         
         function imageHtml(img) {
           var html = `
@@ -40,16 +39,12 @@ $(function () {
         $('.uploadInfo').css('display', 'none');
         
         //新しいinputをだす
-        console.log(index)
         if ($(`.preview-image[data-id=${index}]`)[0]) {
           $(`.preview-image[data-id=${index}]`).attr(`src`, src)
-          console.log(this)
           return false
         };
         preview.append(select);
         image_num++;
-        // var image_num_del = image_num - 1;
-        // var image_num_edit = image_num - 1;
         apendInputHtml(image_num)
         $('.input-box__image').attr("for", `product_images${image_num}`)
         function apendInputHtml(image_num) {
@@ -72,9 +67,6 @@ $(function () {
 
   $('.images').on('click', '.sell-upload-edit', function (e) {
     e.preventDefault()
-    var id = $(this).data('id');
-    console.log(id)
     $(`input[data-id=${id}]`).click()
-    // $(`[data-id=${id}]`).remove()
   })
 })
