@@ -11,8 +11,11 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :delivery_tax_payer, null: false
       t.integer :delivery_agency , null: false
       t.integer :delivery_days , null: false
-      t.integer :status , null: false
-      t.references :user , null: false , foreign_key: true
+      t.integer :status , null: false , default: 0
+      t.integer :prefecture , null: false
+      t.bigint :user_id , null: false , foreign_key: true
+      t.bigint :category_id , null: false , foreign_key: true
+      t.bigint :brand_id , null: false , foreign_key: true
       t.timestamps
     end
   end

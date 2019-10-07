@@ -50,6 +50,9 @@
           float: right;
           width: 400px;
           .productForm__field {
+            .images{
+              display:flex;
+            }
             ul {
               @include clearfix();
               padding: 15px 0;
@@ -95,19 +98,31 @@
           }
           &--top {
             margin: 0;
-            .formUploader {
+            .input-box__image {
+              .image{
+                float:left;
+                .sell-upload-button{
+                  width: 120px;
+                  // height: 100px;
+                  
+                }
+              }
               font-size: 14px;
               background-color: $hexWhite;
               border: 0.5px dashed #ccc;
               display: block;
               min-height: 184px;
               text-align: center;
-              line-height: 184px;
+              // line-height: 184px;
               @include clearfix();
               position: relative;
+              .preview-image{
+                width: 120px;
+                height: 150px;
+              }
               .uploadInfo {
                 position: absolute;
-                top: -40%;
+                // top: -40%;
                 left: 30%;
                 font-weight: bold;
                 p {
