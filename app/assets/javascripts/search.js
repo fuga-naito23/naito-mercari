@@ -12,33 +12,33 @@ $(function(){
     category_search.append(html)
   }
 
-function appendGrandChildSelect(grandchild) {
-  var html =
-      `<div class="select-wrap" id="grandchild-wrap">
-        <select class= "inputField inputField__select" id="grandchild-category" >
-            <option value>---</option>
-        </select>
-      </div>`
-  category_search.append(html)
-}
+  function appendGrandChildSelect(grandchild) {
+    var html =
+        `<div class="select-wrap" id="grandchild-wrap">
+          <select class= "inputField inputField__select" id="grandchild-category" >
+              <option value>---</option>
+          </select>
+        </div>`
+    category_search.append(html)
+  }
 
 
-function appendChild(child) {
-  $("#child-category").append(
-    $("<option>")
-      .val($(child).attr('id'))
-      .text($(child).attr('name'))
-  )
-}
+  function appendChild(child) {
+    $("#child-category").append(
+      $("<option>")
+        .val($(child).attr('id'))
+        .text($(child).attr('name'))
+    )
+  }
 
 
-function appendGrandChild(grandchild) {
-  $("#grandchild-category").append(
-    $("<option>")
-      .val($(grandchild).attr('id'))
-      .text($(grandchild).attr('name'))
-  )
-}
+  function appendGrandChild(grandchild) {
+    $("#grandchild-category").append(
+      $("<option>")
+        .val($(grandchild).attr('id'))
+        .text($(grandchild).attr('name'))
+    )
+  }
 // 最初のカテゴリーが選択された時に子要素を取り出すajax通信
   $('#parent-form').change(function (e) {
     e.preventDefault();
