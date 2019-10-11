@@ -5,7 +5,7 @@ $(function(){
   function appendChildSelect(child) {
     var html =
         `<div class="select-wrap" id="child-wrap">
-          <select  id="child-category" >
+          <select class= "inputField inputField__select" id="child-category" >
               <option value>---</option>
           </select>
         </div>`
@@ -15,7 +15,7 @@ $(function(){
 function appendGrandChildSelect(grandchild) {
   var html =
       `<div class="select-wrap" id="grandchild-wrap">
-        <select id="grandchild-category" >
+        <select class= "inputField inputField__select" id="grandchild-category" >
             <option value>---</option>
         </select>
       </div>`
@@ -24,20 +24,20 @@ function appendGrandChildSelect(grandchild) {
 
 
 function appendChild(child) {
-$("#child-category").append(
-  $("<option>")
-    .val($(child).attr('id'))
-    .text($(child).attr('name'))
-)
+  $("#child-category").append(
+    $("<option>")
+      .val($(child).attr('id'))
+      .text($(child).attr('name'))
+  )
 }
 
 
 function appendGrandChild(grandchild) {
-$("#grandchild-category").append(
-  $("<option>")
-    .val($(grandchild).attr('id'))
-    .text($(grandchild).attr('name'))
-)
+  $("#grandchild-category").append(
+    $("<option>")
+      .val($(grandchild).attr('id'))
+      .text($(grandchild).attr('name'))
+  )
 }
 // 最初のカテゴリーが選択された時に子要素を取り出すajax通信
   $('#parent-form').change(function (e) {
@@ -47,13 +47,13 @@ $("#grandchild-category").append(
     $("#grandchild-wrap").remove()
     
     $.ajax({ 
-    url: '/products/new',
-    type: 'GET',
-    data: ('parent=' + parent),
-    dataType: 'json' 
+      url: '/products/new',
+      type: 'GET',
+      data: ('parent=' + parent),
+      dataType: 'json' 
     })
       
-      .done(function (child) {
+    .done(function (child) {
       appendChildSelect(child)
       child.forEach(function(child) {
         appendChild(child)
@@ -65,6 +65,7 @@ $("#grandchild-category").append(
 $(document).on('change', '#child-category', function() {
   var child = $(this).val();
   $("#grandchild-wrap").remove()
+  
   $.ajax({ 
     url: '/products/new', 
     type: 'GET', 
@@ -75,10 +76,10 @@ $(document).on('change', '#child-category', function() {
 
   .done(function(grandchild) {
     appendGrandChildSelect(grandchild)
-    grandchild.forEach(function(grandchild) {
-      appendGrandChild(grandchild)
+      grandchild.forEach(function(grandchild) {
+        appendGrandChild(grandchild)
+      })
     })
-  })
-});
+  });
 
 })

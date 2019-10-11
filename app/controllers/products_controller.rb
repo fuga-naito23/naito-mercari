@@ -1,16 +1,19 @@
 class ProductsController < ApplicationController
+  
   def index
   end
 
   def new
     @product = Product.new
     @parents = Category.all.order("id ASC").limit(13)
+    
     if params[:parent]
       @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
     else
      @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{params[:child]}")
+    
     end
-  respond_to do |format|
+    respond_to do |format|
       format.html
       format.json
     end
