@@ -67,6 +67,7 @@ $(function () {
 
   $('.images').on('click', '.sell-upload-edit', function (e) {
     e.preventDefault()
+    var id = $(this).data('id');
     $(`input[data-id=${id}]`).click()
   })
 })

@@ -90,3 +90,4 @@ gem 'omniauth-google-oauth2'
 
 gem 'jp_prefecture'
 gem 'enum_help'
+gem 'ancestry'
