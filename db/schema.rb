@@ -71,15 +71,11 @@ ActiveRecord::Schema.define(version: 2019_10_07_111759) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "detail", null: false
-    t.integer "condition", null: false
+    t.integer "condition", default: 0, null: false
     t.integer "size", null: false
-    t.integer "shipping_fee", null: false
-    t.integer "expected_date", null: false
     t.integer "delivery_tax_payer", null: false
     t.integer "delivery_agency", null: false
     t.integer "delivery_days", null: false
-    t.integer "status", default: 0, null: false
-    t.integer "prefecture", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.bigint "brand_id", null: false

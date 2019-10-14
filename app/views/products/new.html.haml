@@ -17,7 +17,7 @@
                   .uploadInfo
                     %p ドラッグアンドドロップ
                     %span またはクリックしてアップロード
-                  = f.file_field :images , data: {id: "0"}
+                  = f.file_field :images,multiple: true, data: {id: "0"}
           .formSection
             .productForm__field
               = f.label :商品名
@@ -37,17 +37,21 @@
                 = f.label :カテゴリー
                 %span.formRequired 必須
                 %br/
-                = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "inputField inputField__select", required: true, id: "parent-form", name: 'item[category_ids][]'
+                = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "inputField inputField__select", required: true, id: "parent-form", name: 'product[category_id]'
+              .productForm__field
+                = f.label :サイズ
+                %br/
+                = f.text_field :size, placeholder: "サイズ"
               .productForm__field
                 = f.label :ブランド
                 %br/
-                = f.text_field :size, placeholder: "例) ルイ ヴィトン"
+                = f.collection_select(:brand_id, Brand.all, :id, :name,{prompt: "---"}, {class: "inputField inputField__select", required: true})
               .resultLists
               .productForm__field
                 = f.label :商品の状態
                 %span.formRequired 必須
                 %br/
-                = f.select :status,Product.statuses_i18n.invert, {}, placeholder: 0 , class: "inputField inputField__select", required: true
+                = f.select :condition,Product.conditions_i18n.invert, {include_blank: "---"}, placeholder: 0 , class: "inputField inputField__select", required: true
           .formSection
             .contentLeft
               %h3
@@ -60,17 +64,17 @@
                 = f.label :配送料の負担
                 %span.formRequired 必須
                 %br/
-                = f.select(:shipping_fee, [["送料込み（出品者負担）", 0], ["着払い（購入者負担）", 1]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
+                = f.select(:delivery_tax_payer, [["送料込み（出品者負担）", 0], ["着払い（購入者負担）", 1]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
               .productForm__field
                 = f.label :発送元の地域
                 %span.formRequired 必須
                 %br/
-                = f.collection_select(:prefecture, JpPrefecture::Prefecture.all, :code, :name,{prompt: "---"}, {class: "inputField inputField__select", required: true})
+                = f.collection_select(:delivery_agency, JpPrefecture::Prefecture.all, :code, :name,{prompt: "---"}, {class: "inputField inputField__select", required: true})
               .productForm__field
                 = f.label :発送までの日数
                 %span.formRequired 必須
                 %br/
-                = f.select(:expected_date, [["1-2日で発送", 0], ["2-3日で発送", 1], ["4-7日で発送", 2]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
+                = f.select(:delivery_days, [["1-2日で発送", 0], ["2-3日で発送", 1], ["4-7日で発送", 2]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
           .formSection
             .contentLeft
               %h3

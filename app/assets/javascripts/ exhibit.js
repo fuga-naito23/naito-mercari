@@ -34,7 +34,6 @@ $(function () {
         }
         var select = $(imageHtml())
         
-        
         //display noneでかくす
         $('.uploadInfo').css('display', 'none');
         
@@ -49,7 +48,7 @@ $(function () {
         $('.input-box__image').attr("for", `product_images${image_num}`)
         function apendInputHtml(image_num) {
           var html = `
-        <input data-id="${image_num}" type="file" name="product[images]" id="product_images${image_num}">
+        <input data-id="${image_num}" type="file" name="product[images][]" id="product_images${image_num}">
         `
           $(".input-box__image").append(html)
         }

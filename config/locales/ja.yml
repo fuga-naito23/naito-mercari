@@ -206,7 +206,7 @@ ja:
     pm: 午後
   enums:
     product:
-      status:
+      condition:
         old_lv_0: 新品/未使用
         old_lv_1: 目立った傷や汚れなし
         old_lv_2: やや傷や汚れあり
