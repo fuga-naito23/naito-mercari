@@ -1,24 +1,24 @@
 = render "shared/header"
-%nav.breadCrumbs
-  %ul
-    %li
-      = link_to "メルカリ", root_path
-    %li
-      = fa_icon "angle-right"
-    %li
-      = link_to "hoge", ""
-    %li
-      = fa_icon "angle-right"
-    %li
-      = link_to "fuga", ""
-    %li
-      = fa_icon "angle-right"
-    %li
-      = link_to "piyo", ""
-    %li
-      = fa_icon "angle-right"
-    %li
-      %p 名前
+-# %nav.breadCrumbs
+-#   %ul
+-#     %li
+-#       = link_to "メルカリ", root_path
+-#     %li
+-#       = fa_icon "angle-right"
+-#     %li
+-#       = link_to "hoge", ""
+-#     %li
+-#       = fa_icon "angle-right"
+-#     %li
+-#       = link_to "fuga", ""
+-#     %li
+-#       = fa_icon "angle-right"
+-#     %li
+-#       = link_to "piyo", ""
+-#     %li
+-#       = fa_icon "angle-right"
+-#     %li
+-#       %p 名前
 .main
   .showMain
     .contentLeft
@@ -27,53 +27,60 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name 商品名
+          %h2.itemBox__name
+            = @product.name
           .itemBox__body
             %ul
-              %li
-                = image_tag"", size: "300x285"
-                .soldout
-                .soldoutText 売り切れ
+              %li.image_box
+                = image_tag @product.images[0], size: "300x285" , class: 'top_image'
+                -# .soldout
+                -# .soldoutText 売り切れ
                 %ul
                   %li
-                    = image_tag "", size: "75x75"
+                  - if @product.images.attached?
+                    - @product.images.each do |image|
+                      = image_tag image , size: "60x60", class: "product_image"
               %li.table
                 %table
                   %tbody
                     %tr
                       %th 出品者
-                      %td だれ誰
+                      %td
+                        = @product.user.nickname
                     %tr
                       %th カテゴリー
                       %td
-                        = link_to "メインカテゴリー", ""
+                        = @product.category.root.name
                         %br
-                        = link_to "サブカテゴリー", ""
                         %br
                         = link_to "アイテム", ""
                     %tr
                       %th ブランド
                       %td
-                        = link_to "ブランド名", "#"
+                        = @product.brand.name
                     %tr
                       %th 商品のサイズ
-                      %td これくらい
+                      %td
+                        = @product.size
                     %tr
                       %th 商品の状態
-                      %td こんなもん
+                      %td
+                        = translate_condition(@product.condition)
                     %tr
                       %th 配送料の負担
-                      %td 100円
+                      %td
+                        = @product.price
                     %tr
                       %th 発送元の地域
                       %td
-                        = link_to "青森", ""
+                        = @product.pref.name
                     %tr
                       %th 発送日の目安
-                      %td 3日
+                      %td
+                        = delivery_days(@product.delivery_days)
           .itemBox__price
             %span
-              4000円
+              = @product.price
             %span
               (税込)
             %span
