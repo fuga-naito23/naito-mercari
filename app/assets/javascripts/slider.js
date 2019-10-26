@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function () {
   $("#slickLists--0").slick({
     centerMode: true,
     centerPadding: '100px',

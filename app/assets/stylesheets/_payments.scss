@@ -1,0 +1,110 @@
+.payment {
+  width: 700px;
+  // height: 100%;
+  margin: auto;
+  background-color: white;
+  padding-bottom: 24px;
+  &__header {
+    text-align: center;
+    height: 65px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 65px;
+    border-bottom: solid 1px #f5f5f5;
+  }
+  &__content {
+    padding: 20px 190px 40px 190px;
+    &__product {
+      position: relative;
+      &__image {
+        display: inline-block;
+      }
+      &__text {
+        display: inline-block;
+        font-weight: bold;
+        position: absolute;
+      }
+    }
+    &__price {
+      text-align: center;
+      &__main {
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      &__fee {
+        font-size: 13px;
+        display: inline-block;
+      }
+    }
+    &__point {
+      height: 48px;
+      background-color: #cccccc;
+      font-size: 14px;
+      text-align: center;
+      line-height: 48px;
+      margin-top: 16px;
+    }
+    &__sum-text {
+      padding: 16px 0;
+      float: left;
+      &__deteal {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    &__sum-price {
+      padding: 16px 0;
+      float: right;
+      &__deteal {
+        display: inline-block;
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+    &__paying-btn {
+      clear: both;
+      height: 48px;
+      // background-color: #EA352D;
+      // font-size: 14px;
+      text-align: center;
+      // line-height: 48px;
+      // margin-top: 16px;
+      // color: white;
+      .submit-btn {
+        padding: 48px;
+        width: 320px;
+        padding: 12px;
+        background-color: #EA352D;
+        color: white;
+        font-size: 13.5px;
+        border: none;
+      }
+    }
+  }
+  &__address {
+    padding: 24px 190px;
+    border-top: solid 1px #f5f5f5;
+    font-size: 13px;
+    &__title {
+      font-weight: bold;
+    }
+    &__change {
+      display: block;
+      float: right;
+    }
+  }
+  &__way {
+    padding: 24px 190px;
+    border-top: solid 1px #f5f5f5;
+    font-size: 13px;
+    &__title {
+      font-weight: bold;
+    }
+    &__change {
+      display: block;
+      float: right;
+    }
+  }
+ }

@@ -66,19 +66,20 @@
             %span
               送料込み
             -# 購入ボタンはつけてください
-          .itemDetail 詳細情報
           %ul
             - if user_signed_in?
+              .itemDetail
+                = link_to "購入画面", new_product_payment_path(@product)
               %li.optionalBtn.likeBtn.likeBtn--red{id: "unlikeBtn"}
                 = fa_icon "heart", text: "いいね 1", id: ""
               -# %li.optionalBtn.likeBtn{id: "likeBtn"}
               -#   = fa_icon "heart", text: "いいね #{@product.like_count}"
-            %li.optionalBtn
-              = link_to "#" do
-                = fa_icon "flag", text: "不適切な商品の通報"
-            %li.optionalBtn
-              = link_to "#" do
-                = fa_icon "lock", text: "あんしん・あんぜんへの取り組み"
+              %li.optionalBtn
+                = link_to "#" do
+                  = fa_icon "flag", text: "不適切な商品の通報"
+              %li.optionalBtn
+                = link_to "#" do
+                  = fa_icon "lock", text: "あんしん・あんぜんへの取り組み"
         -# - if user_signed_in?
         -#   .commentBox
         -#     - if @comments

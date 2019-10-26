@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :dealings
   has_one :sns_credentials
   has_one :profile
-  has_one :credit
+  has_one :card
   accepts_nested_attributes_for :profile
   
   

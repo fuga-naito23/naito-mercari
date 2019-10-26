@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function () {
 
   var category_search = $(".productForm__field--category");
 

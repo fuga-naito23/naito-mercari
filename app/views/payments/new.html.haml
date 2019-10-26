@@ -1,0 +1,44 @@
+.devise
+  = render "devise/shared/header"
+  .payment
+    .payment__header
+      購入内容の確認
+    .payment__content
+      .payment__content__product
+        .payment__content__product__image
+          = image_tag @product.images[0], size: "150x150" , class: 'top_image'
+        .payment__content__product__text
+          = @product.name
+      .payment__content__price
+        .payment__content__price__main
+          #{@product.price}円
+        .payment__content__price__fee
+          送料込み
+      .payment__content__point
+        ポイントはありません
+      .payment__content__sum-text
+        .payment__content__sum-text__deteal
+          支払い金額
+      .payment__content__sum-price
+        .payment__content__sum-price__deteal
+          #{@product.price}円
+      .payment__content__paying-btn
+        = link_to '購入する', product_payments_path(@product),method: :post, class: "submit-btn"
+    .payment__address
+      .payment__address__title
+        配送先
+      .payment__address__deteal
+        .payment__address__deteal__num
+          〒111-1111
+        .payment__address__deteal__main
+          京都府京都市どこどこ
+        .payment__address__deteal__name
+          田中 太郎
+      .payment__address__change
+        変更する
+    .payment__way
+      .payment__way__title
+        なんとか
+      .payment__way__change
+        変更する
+  = render "devise/shared/footer"

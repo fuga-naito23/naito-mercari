@@ -38,6 +38,9 @@
           %li.listsRight__item
             = link_to "#" do
               = fa_icon "check", text: "やることリスト"
+          %li.listsRight__item
+            = link_to new_card_path do
+              = fa_icon "card", text: "クレカ登録"
       - else
         %ul.listsRight
           %li.listsRight__item.listsRight__item--login
