@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:new, :create, :show] do
-    member do
-      post "purchase"
-    end
+    # member do
+      resources :payments, only: [:new, :create]
+      # post "purchase"
+    # end
   end
 
-  resources :cards, only: [:new]
+  resources :cards, only: [:new, :create]
+
 end

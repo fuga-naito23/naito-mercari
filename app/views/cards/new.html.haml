@@ -1,10 +1,37 @@
-// ログイン、サインアップ、ログアウトボタン
-= link_to "login", new_user_session_path, class: "btn btn-primary"
-= link_to "signup", new_user_registration_path, class: "btn btn-primary"
-= link_to "signout", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+= render "shared/header"
+.main
+  .contents
+    = render "/users/leftcontent"
 
-// 現在ログインしているユーザーIDの表示
-- if user_signed_in?
-  現在、ユーザー#{current_user.id}でログイン中です
-- else
-  未ログインです
+    .credit
+      .credit__header
+        クレジットカード情報入力
+
+      .credit__content
+        = form_with url: cards_path, id: "credit-form", method: :post, html: { name: "creditForm"} do |f|
+          .credit__content__number
+            = f.label :カード番号, class: "label"
+            %span.neccessary 必須
+            %br
+            = f.text_field :card_number, type: 'text', class: "imput_form", id: "card_number", placeholder: "半角英数字のみ"
+          .credit__content__limit
+            = f.label :有効期限, class: "label"
+            %span.neccessary 必須
+            %br
+            = f.select :limit_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: "imput_form_half", id: "limit_month"
+            %span.month 月
+            = f.select :limit_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, class: "imput_form_half", id: "limit_year"
+            %span.year 年
+
+          .credit__content__security
+            = f.label :セキュリティコード, class: "label"
+            %span.neccessary 必須
+            %br
+            = f.text_field :security_code, class: "imput_form", id: "security_code", placeholder: "カード背面４桁もしくは３桁の番号"
+
+          .credit__content__submit
+            = f.submit '追加する', class: "submit-btn js-card_submit"
+
+= render "/shared/banner"
+= render "/shared/footer"
+= render "/shared/purchaseBtn"

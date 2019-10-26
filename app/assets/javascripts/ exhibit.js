@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   var image_num = 0;
   //画像が追加されると
   $(document).on('change', 'input[type="file"]', function (e) {
@@ -7,8 +7,7 @@ $(function () {
     var files = e.target.files;
     var preview = $('.input-box__image');
     handleFiles(files);
-    
-    
+     
     function handleFiles(files) {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
