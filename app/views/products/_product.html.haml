@@ -1,0 +1,18 @@
+.productList
+  = link_to product_path(product) do
+    -# .soldout--small
+    -# .soldoutText--small
+    -#   = product.condition
+    %figure.productList--img
+      =image_tag url_for(product.images[0])
+    .productList--body
+      %h3.name
+        =product.name
+      .details
+        %ul
+          %li
+            =product.price
+            円
+          %li
+            = fa_icon "heart", class: "likeIcon", text: "#{product.user_id}"
+        %p (税込)

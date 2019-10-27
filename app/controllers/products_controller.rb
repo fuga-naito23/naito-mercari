@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
+    @products = Product.limit(20).order("id DESC")
   end
 
   def new
@@ -25,6 +26,24 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+
+    if product.user_id == current_user.id
+      product.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path  
+    end
   end
 
   private

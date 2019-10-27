@@ -65,14 +65,11 @@
               (税込)
             %span
               送料込み
-            -# 購入ボタンはつけてください
           - if @product.user_id == current_user.id
-            .item__edit
-              = link_to '商品編集', edit_product_path(@product)
+            .item__destroy
+              = link_to '商品を削除', "/products/#{@product.id}", method: :delete
           %ul
             - if user_signed_in?
-              .itemDetail
-                = link_to "購入画面", new_product_payment_path(@product)
               %li.optionalBtn.likeBtn.likeBtn--red{id: "unlikeBtn"}
                 = fa_icon "heart", text: "いいね 1", id: ""
               -# %li.optionalBtn.likeBtn{id: "likeBtn"}

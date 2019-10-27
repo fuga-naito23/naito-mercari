@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:new, :create, :show] do
+  resources :products, only: [:new, :create, :show, :edit, :update, :destroy] do
     # member do
       resources :payments, only: [:new, :create]
       # post "purchase"
