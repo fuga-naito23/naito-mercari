@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  
+  before_action :set_product, only: [:show, :edit, :destroy]
+
   def index
     @products = Product.limit(20).order("id DESC")
   end
@@ -25,20 +26,17 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
   end
 
   def destroy
-    product = Product.find(params[:id])
 
-    if product.user_id == current_user.id
+    if @product.user_id == current_user.id
       product.destroy
       redirect_to root_path
     else
@@ -50,5 +48,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :category_id, :size, :brand_id, :detail, :condition, :delivery_tax_payer, :delivery_agency, :delivery_days, images: []).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
