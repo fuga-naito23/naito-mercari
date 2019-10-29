@@ -37,13 +37,12 @@ class ProductsController < ApplicationController
   def destroy
 
     if @product.destroy && @product.user_id == current_user.id
-      @product.destroy
       redirect_to root_path
     else
       flash[:alert] = '削除に失敗しました！'
       redirect_to product_path(@product)
     end
-    
+
   end
 
   private
