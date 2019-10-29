@@ -1,8 +1,5 @@
 .productList
   = link_to product_path(product) do
-    -# .soldout--small
-    -# .soldoutText--small
-    -#   = product.condition
     %figure.productList--img
       =image_tag url_for(product.images[0])
     .productList--body
