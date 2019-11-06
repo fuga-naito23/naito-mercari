@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function () {
         var src = files[i];
         src = window.URL.createObjectURL(src);
         
-        function imageHtml(img) {
+        function imageHtml() {
           var html = `
           <div class = "image">
           <img class = "preview-image" src= "${src}" data-id="${index}">
