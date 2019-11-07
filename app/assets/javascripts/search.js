@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function () {
   function appendChildSelect(child) {
     var html =
         `<div class="select-wrap" id="child-wrap">
-          <select class= "inputField inputField__select" id="child-category" >
+          <select class= "inputField inputField__select" id="child-category" name="product[category_id]">
               <option value>---</option>
           </select>
         </div>`
@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function () {
   function appendGrandChildSelect(grandchild) {
     var html =
         `<div class="select-wrap" id="grandchild-wrap">
-          <select class= "inputField inputField__select" id="grandchild-category" >
+          <select class= "inputField inputField__select" id="grandchild-category" name="product[category_id]">
               <option value>---</option>
           </select>
         </div>`
@@ -58,6 +58,7 @@ $(document).on('turbolinks:load', function () {
       child.forEach(function(child) {
         appendChild(child)
       })
+      
     })
   })
 // 子カテゴリーが選択された際にその子要素を取り出すajax通信

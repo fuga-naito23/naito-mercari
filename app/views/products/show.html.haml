@@ -70,6 +70,8 @@
           - if @product.user_id == current_user.id
             .item__edit
               = link_to '商品編集', edit_product_path(@product)
+            .item__delete
+              = link_to '商品削除', product_path(@product),method: :delete
           %ul
             - if user_signed_in?
               .itemDetail

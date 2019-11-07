@@ -62,6 +62,9 @@ class ProductsController < ApplicationController
 
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
+    # TODO：カテゴリが編集ページでも出るには？？
+    # @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
+    # @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{params[:child]}")
     if params[:parent]
       @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
     else
