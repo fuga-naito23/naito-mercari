@@ -1,4 +1,5 @@
 = render "shared/header"
+= flash[:alert]
 .main
   .showMain
     .contentLeft
@@ -66,6 +67,9 @@
             %span
               送料込み
             -# 購入ボタンはつけてください
+          - if @product.user_id == current_user.id
+            .item__edit
+              = link_to '商品編集', edit_product_path(@product)
           %ul
             - if user_signed_in?
               .itemDetail
