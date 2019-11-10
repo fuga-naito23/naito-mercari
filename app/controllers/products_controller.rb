@@ -4,6 +4,17 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.limit(20).order("id DESC")
+    # カテゴリごとのインスタンスを生成
+    # user.where(配列).order(id DESC).limit(5)
+    # whereメソッドに配列を渡す。その配列から5つを新着順にだす
+    redies = Category.find(1)
+    redies_categorys_id = redies.subtree_ids
+    @redies_categorys = Product.where(category_id: redies_categorys_id).limit(5).order("id DESC")
+    mens = Category.find(2)
+    mens_categorys_id = mens.subtree_ids
+    @mens_categorys = Product.where(category_id: mens_categorys_id).limit(5).order("id DESC")
+    
+
   end
 
   def new

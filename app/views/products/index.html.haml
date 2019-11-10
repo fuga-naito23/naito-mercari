@@ -124,9 +124,15 @@
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title 新規投稿商品
+          %h3.title レディース
       .productLists{id: "slickLists--0"}
-        = render []
+        = render @redies_categorys
+    .productBox
+      .productHead
+        = link_to "#" do
+          %h3.title メンズ
+      .productLists{id: "slickLists--0"}
+        = render @mens_categorys
   %section.pickupContainer
     %h2.head ピックアップブランド
     .productBox
