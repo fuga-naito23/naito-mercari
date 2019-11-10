@@ -1,0 +1,15 @@
+.productList
+  = link_to product_path(mens_category) do
+    %figure.productList--img
+      =image_tag url_for(mens_category.images[0])
+    .productList--body
+      %h3.name
+        =mens_category.name
+      .details
+        %ul
+          %li
+            =mens_category.price
+            円
+          %li
+            = fa_icon "heart", class: "likeIcon", text: "#{mens_category.user_id}"
+        %p (税込)
