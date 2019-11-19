@@ -1,0 +1,14 @@
+=render "shared/header"
+.category_product_list
+  
+
+.main
+  %section.pickupContainer
+    %h2.head
+      = @category.name
+    .productBox
+      .productLists{id: "slickLists--0"}
+        = render @category_products
+= render "shared/banner"
+= render "shared/footer"
+= render "shared/purchaseBtn"

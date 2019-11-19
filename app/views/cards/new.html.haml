@@ -1,4 +1,9 @@
 = render "shared/header"
+%nav.breadCrumbs
+  %ul
+    %li
+    - breadcrumb :card
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
 .main
   .contents
     = render "/users/leftcontent"

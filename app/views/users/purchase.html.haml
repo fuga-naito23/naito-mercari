@@ -1,16 +1,8 @@
 = render "shared/header"
 %nav.breadCrumbs
   %ul
-    %li
-      = link_to "メルカリ", root_path
-    %li
-      = fa_icon "angle-right"
-    %li
-      = link_to " マイページ", user_path(current_user)
-    %li
-      = fa_icon "angle-right"
-    %li
-      %p 購入した商品 - 取引中
+    - breadcrumb :root
+    = breadcrumbs
 .main
   .contents
     = render "leftcontent"
