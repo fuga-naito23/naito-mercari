@@ -4,15 +4,15 @@
       %h1.icon
         = link_to image_tag("logo.svg", size: "134x36"), root_path
       .searchBox
-        = form_tag "", method: :get do
-          %input.searchBox--input{id: "searchInput", name: "key",placeholder: "キーワードから探す"}
+        = form_tag search_products_path , method: :get do
+          %input.searchBox--input{id: "searchInput", name: "search",placeholder: "キーワードから探す"}
             =button_to type: "submit" do
               =fa_icon "search"
       %ul.resultLists
     .nav.clearfix
       %ul.listsLeft
         %li.listsLeft__item.listsLeft__item--first
-          = link_to "カテゴリー", "", {id: "catBtn"}
+          = link_to "カテゴリー", category_index_path, {id: "catBtn"}
           .tree.displayNone
             %ul.categoryTree
               - [].each do |category|
@@ -26,7 +26,7 @@
       - if user_signed_in?
         %ul.listsRight
           %li.listsRight__item
-            = link_to "" do
+            = link_to user_path(current_user.id) do
               = image_tag("member_photo_noimage_thumb.png", size: "32x32",)
               %span マイページ
           %li.listsRight__item

@@ -1,0 +1,10 @@
+=render "shared/header"
+.categoies
+  - @category.each do |category|
+    .category_name
+      = link_to category_path(category) do
+        = category.name
+= render "shared/banner"
+= render "shared/footer"
+= render "shared/purchaseBtn"
+

@@ -12,11 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :category,only:[:index, :show]
+
   resources :products, only: [:new, :create, :show, :edit, :update, :destroy] do
-    # member do
+  collection do
+    get "search"
+  end
       resources :payments, only: [:new, :create]
-      # post "purchase"
-    # end
   end
 
   resources :cards, only: [:new, :create]

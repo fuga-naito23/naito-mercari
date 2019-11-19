@@ -1,0 +1,27 @@
+=render "shared/header"
+.box
+  .side_bar
+    = search_form_for(@q, url: search_products_path)  do |f|
+      .name_box
+        = icon "fas", "plus"
+        = f.label :name, "キーワードを追加する", {for: "q_name"}
+        = f.search_field :name, value: params[:name_search], name: "name_search", placeholder: "例）値下げ"
+      .sort_box
+        = f.label :sorts, '並び順'
+        = f.select(:sorts, @order, {include_blank: "並び替え", selected: params[:q][:sorts]})
+      .productForm__field.productForm__field--category
+        %span.formRequired
+        %br/  
+        = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "inputField inputField__select", required: true, id: "parent-form", name: 'product[category_id]'
+      = f.submit "検索" , class: "submit"
+  .search
+    - @products.each do |product|
+      .product_name
+        = link_to product_path(product) do
+          = product.name
+      .product_image
+        = link_to product_path(product) do
+          = image_tag product.images[0], size: "150x200" , class: 'top_image'
+= render "shared/banner"
+= render "shared/footer"
+= render "shared/purchaseBtn"
