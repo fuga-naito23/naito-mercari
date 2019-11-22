@@ -13,8 +13,19 @@ class Product < ApplicationRecord
 
 
   def self.search(search)
-   
     Product.where(['name LIKE ?', "%#{search}%"])
   end
+
+  # validations
+  validates :name, :price , :detail , :condition, :delivery_tax_payer,
+            :delivery_days,presence: true
+  validates :name, length: { in: 1..40}
+  validates :detail, length: { in: 1..1000}
+  validates :price, numericality: { greater_than_or_equal_to: 300,
+                                    less_than_or_equal_to: 9_999_999 }
+  validates :images, length: { in: 1..10 }
+
+
+
 
 end
