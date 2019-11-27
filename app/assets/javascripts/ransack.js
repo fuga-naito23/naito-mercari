@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function () {
     var name_search = $('#q_name').val()
     var q = $('#q_sorts').val()
 
-    console.log(category_id)
+
     $.ajax({
       type: 'GET',
       url: '/products/search',

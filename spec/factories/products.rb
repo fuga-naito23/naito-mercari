@@ -13,4 +13,5 @@ FactoryBot.define do
 
   after(:build) do |product|
     product.image << build(:image)
+  end
 end

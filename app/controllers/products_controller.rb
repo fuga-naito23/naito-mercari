@@ -56,8 +56,6 @@ class ProductsController < ApplicationController
 
   def search
 
-    
-    # binding.pry
     respond_to do |format|
       format.html{
 
@@ -66,8 +64,7 @@ class ProductsController < ApplicationController
           redirect_to root_path
           return
         end
-        
-        # binding.pry
+
         @products = Product.search(params[:search])
         params[:q] = { sorts: 'id DESC' }
         set_ransack
@@ -81,7 +78,7 @@ class ProductsController < ApplicationController
         @category = Category.find(params[:q][:category_id])
         params[:q][:category_id] = @category.subtree_ids
         set_ransack 
-        binding.pry
+
       }
     end
   end
